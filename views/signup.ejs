@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+  </head>
+  <link rel="stylesheet" href=" /style.css" />
+  <body>
+    <div class="form-container">
+      <h2>SIGNUP</h2>
+      <form action="/signup" method="post">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="username"
+            placeholder="Enter your name"
+            required
+            autocomplete="off"
+          />
+        </div>
+        <div class="err">
+          <% if(locals.err){%>
+          <h4><%=err %></h4>
+          <%} %>
+
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="pswrd"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <input type="checkbox" onclick="toggleVisibility()"/>Show Password</br>
+        <% if(locals.error){%>
+          <h4><%=error %></h4>
+          <%} %>
+        <button type="submit" class="submit-btn">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="/">Login</a></p>
+    </div>
+    <script>  
+      function toggleVisibility() {  
+        var getPasword = document.getElementById("pswrd");  
+        if (getPasword.type === "password") {  
+          getPasword.type = "text";  
+        } else {  
+          getPasword.type = "password";  
+        }  
+      }  
+      </script>  
+  </body>
+</html>
